@@ -44,7 +44,7 @@ export function Footer() {
           </nav>
         </div>
         <p className="mt-12 text-xs text-muted">
-          © {year} {SITE_NAME}. Haltères en béton, fabriquées sur commande.
+          © {year} {SITE_NAME}. Haltères en béton, prêtes à commander.
         </p>
       </div>
     </footer>

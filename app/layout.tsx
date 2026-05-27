@@ -54,11 +54,9 @@ export default function RootLayout({
         >
           Aller au contenu
         </a>
-        <Header />
         <div id="contenu" className="flex-1">
           {children}
         </div>
-        <Footer />
       </body>
     </html>
   );

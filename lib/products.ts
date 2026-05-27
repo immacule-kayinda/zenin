@@ -50,7 +50,6 @@ export const products: Product[] = [
       },
     ],
     featured: true,
-    priceLabel: "Sur devis",
   },
   {
     slug: "zenin-15kg",
@@ -78,7 +77,6 @@ export const products: Product[] = [
       },
     ],
     featured: true,
-    priceLabel: "Sur devis",
   },
   {
     slug: "zenin-20kg",
@@ -106,7 +104,6 @@ export const products: Product[] = [
       },
     ],
     featured: true,
-    priceLabel: "Sur devis",
   },
   {
     slug: "zenin-25kg",
@@ -129,7 +126,6 @@ export const products: Product[] = [
       },
     ],
     featured: false,
-    priceLabel: "Sur devis",
   },
   {
     slug: "banc-zenin",
@@ -151,7 +147,6 @@ export const products: Product[] = [
       },
     ],
     featured: false,
-    priceLabel: "Sur devis",
   },
   {
     slug: "rack-zenin",
@@ -173,7 +168,6 @@ export const products: Product[] = [
       },
     ],
     featured: false,
-    priceLabel: "Sur devis",
   },
   {
     slug: "tapis-zenin",
@@ -195,7 +189,6 @@ export const products: Product[] = [
       },
     ],
     featured: false,
-    priceLabel: "Sur devis",
   },
 ];
 

@@ -1,6 +1,6 @@
 # Administration Zenin
 
-Espace `/admin` pour gérer le catalogue et les commandes (devis) via MongoDB.
+Espace `/admin` pour gérer le catalogue et les commandes clients via MongoDB.
 
 ## Variables d'environnement
 
@@ -37,13 +37,13 @@ curl -X POST http://localhost:3000/api/seed \
 
 - **Tableau de bord** (`/admin`) — statistiques et raccourcis
 - **Produits** (`/admin/produits`) — liste, création, édition, suppression
-- **Commandes** (`/admin/commandes`) — liste des demandes de devis, marquer comme traitée
+- **Commandes** (`/admin/commandes`) — liste des commandes, marquer comme traitée
 
 Les pages publiques lisent MongoDB lorsque la base contient des produits ; sinon le fichier `lib/products.ts` sert de repli (pratique sans base en local).
 
 ## Commandes côté public
 
-Le formulaire sur `/commander` enregistre chaque demande dans la collection `orders` (statut `pending`). Le webhook optionnel reste supporté.
+Le formulaire sur `/commander` enregistre chaque commande dans la collection `orders` (statut `pending`). Le webhook optionnel reste supporté.
 
 ## Sécurité
 

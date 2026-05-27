@@ -21,7 +21,7 @@ export const orderSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(10, "Décrivez votre demande (10 caractères minimum).")
+    .min(10, "Précisez votre commande (10 caractères minimum).")
     .max(2000, "Message trop long (2000 caractères maximum)."),
 });
 

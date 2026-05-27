@@ -1,7 +1,7 @@
 export const SITE_NAME = "Zenin";
 
 export const SITE_DESCRIPTION =
-  "Haltères en béton et équipement de sport pour intérieurs exigeants.";
+  "Haltères en béton coulées pour l'entraînement à la maison.";
 
 export const NAV_LINKS = [
   { href: "/produits", label: "Produits" },

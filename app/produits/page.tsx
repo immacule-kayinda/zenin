@@ -42,8 +42,8 @@ export default async function ProduitsPage({ searchParams }: ProduitsPageProps) 
           Produits
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-          Haltères coulées et équipement assorti. Chaque référence est fabriquée
-          sur commande ; les délais sont confirmés à la validation du devis.
+          Haltères en béton coulées et équipement assorti. Choisissez votre
+          référence, puis commandez en ligne ou sur WhatsApp.
         </p>
       </header>
 

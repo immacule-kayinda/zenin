@@ -113,7 +113,7 @@ export async function submitOrder(
   return {
     ok: true,
     message:
-      "Demande reçue. Nous revenons vers vous sous 48 h ouvrées avec un devis personnalisé.",
+      "Commande enregistrée. Nous vous contactons sous 48 h ouvrées pour confirmer préparation et livraison.",
   };
 }
 

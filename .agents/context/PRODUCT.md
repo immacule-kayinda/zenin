@@ -6,7 +6,7 @@ brand
 
 ## Product Purpose
 
-Zenin fabrique et vend des haltères en béton et de l'équipement de sport pour des intérieurs soignés. Le site présente le catalogue et oriente vers une commande par formulaire.
+Zenin fabrique et vend des haltères en béton (et un peu d'équipement assorti). Le site présente le catalogue et permet de commander directement, sans logique de devis.
 
 ## Users
 

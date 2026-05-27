@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <SiteContainer as="main" className="py-24 text-center sm:py-32">
+    <SiteContainer
+      as="main"
+      className="py-24 text-center sm:py-32 h-screen flex flex-col items-center justify-center"
+    >
       <p className="text-xs uppercase tracking-[0.2em] text-muted">404</p>
       <h1 className="text-display mt-4 text-3xl font-semibold text-ink">
         Page introuvable
@@ -19,10 +22,7 @@ export default function NotFound() {
           Catalogue
         </Button>
       </div>
-      <Link
-        href="/produits"
-        className="sr-only"
-      >
+      <Link href="/produits" className="sr-only">
         Retour au catalogue
       </Link>
     </SiteContainer>

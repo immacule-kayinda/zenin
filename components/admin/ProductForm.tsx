@@ -77,7 +77,7 @@ export function ProductForm({ product, action, submitLabel }: ProductFormProps) 
         label="Prix (libellé)"
         name="priceLabel"
         defaultValue={product?.priceLabel}
-        placeholder="Sur devis"
+        placeholder="Ex. 189 € la paire (optionnel)"
       />
       <div>
         <label htmlFor="specsJson" className="admin-label">

@@ -34,7 +34,7 @@ export function OrderForm({ products, defaultProductSlug }: OrderFormProps) {
         role="status"
       >
         <p className="text-display text-xl font-semibold text-ink">
-          Demande envoyée
+          Commande envoyée
         </p>
         <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
           {state.message}
@@ -154,7 +154,7 @@ export function OrderForm({ products, defaultProductSlug }: OrderFormProps) {
       </div>
 
       <Button type="submit" disabled={pending}>
-        {pending ? "Envoi en cours…" : "Envoyer la demande"}
+        {pending ? "Envoi en cours…" : "Envoyer la commande"}
       </Button>
     </form>
   );

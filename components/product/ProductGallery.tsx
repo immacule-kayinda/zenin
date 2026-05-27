@@ -19,7 +19,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         className="lg:min-h-[32rem]"
       />
       {rest.length > 0 ? (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+        <div className="mt-4 grid gap-4 border-t border-line pt-4 sm:grid-cols-2 lg:mt-0 lg:border-t-0 lg:pt-0 lg:grid-cols-1">
           {rest.map((image) => (
             <ImageFrame
               key={image.src}

@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## WhatsApp
+
+Disponible **uniquement sur** `/commander`, après sélection d’un produit (`?produit=slug`).
+
+```env
+NEXT_PUBLIC_WHATSAPP_NUMBER=33612345678
+```
+
+**Redémarrez** `npm run dev` après modification de `.env.local`.
+
 ## Administration & MongoDB
 
 Catalogue et commandes peuvent être gérés via `/admin` avec MongoDB. Voir [ADMIN.md](./ADMIN.md) pour les variables d'environnement, le seed et la connexion.

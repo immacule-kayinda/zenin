@@ -6,7 +6,6 @@ import { ProductGallery } from "@/components/product/ProductGallery";
 import { SpecTable } from "@/components/product/SpecTable";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Button } from "@/components/ui/Button";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { fetchProductBySlug } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
@@ -81,10 +80,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
             >
               Commander ce produit
             </Button>
-            <WhatsAppButton
-              productName={product.name}
-              variant="secondary"
-            />
             <Button href="/produits" variant="secondary">
               Retour au catalogue
             </Button>

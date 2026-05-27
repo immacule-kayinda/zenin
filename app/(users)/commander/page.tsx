@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 
+import { CommanderProductPicker } from "@/components/commander/CommanderProductPicker";
+import { CommanderProductSummary } from "@/components/commander/CommanderProductSummary";
+import { CommanderWhatsApp } from "@/components/commander/CommanderWhatsApp";
 import { OrderForm } from "@/components/forms/OrderForm";
 import { SiteContainer } from "@/components/layout/SiteContainer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { fetchProductBySlug, fetchProducts } from "@/lib/catalog";
+import {
+  fetchFeaturedProducts,
+  fetchProductBySlug,
+  fetchProducts,
+} from "@/lib/catalog";
+import { buildCommanderQuickPicks } from "@/lib/commander-quick-picks";
 
 export const metadata: Metadata = {
   title: "Commander",
   description:
-    "Commandez vos haltères Zenin en béton ou notre équipement via le formulaire ou WhatsApp.",
+    "Choisissez votre haltère Zenin ou équipement, puis commandez par formulaire ou WhatsApp.",
 };
 
 export const dynamic = "force-dynamic";
@@ -22,10 +29,10 @@ export default async function CommanderPage({
 }: CommanderPageProps) {
   const { produit } = await searchParams;
   const products = await fetchProducts();
-  const defaultSlug =
-    produit && (await fetchProductBySlug(produit)) ? produit : undefined;
-  const selectedProduct = defaultSlug
-    ? await fetchProductBySlug(defaultSlug)
+  const featured = await fetchFeaturedProducts();
+  const quickPicks = buildCommanderQuickPicks(featured, products);
+  const selectedProduct = produit
+    ? await fetchProductBySlug(produit)
     : undefined;
 
   return (
@@ -36,34 +43,30 @@ export default async function CommanderPage({
           Commander
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-          Indiquez le modèle souhaité et vos coordonnées. Nous confirmons votre
-          commande, le délai de préparation et la livraison sous 48 h ouvrées.
+          {selectedProduct
+            ? "Validez votre commande pour ce produit via WhatsApp ou le formulaire."
+            : "Choisissez une des trois références ci-dessous, ou parcourez le catalogue avant de commander."}
         </p>
       </header>
 
-      <section
-        aria-label="Commande WhatsApp"
-        className="mt-10 max-w-xl border border-line bg-ink/[0.02] px-6 py-8 sm:px-8"
-      >
-        <p className="text-sm font-medium text-ink">Commander sur WhatsApp</p>
-        <p className="mt-2 text-sm leading-relaxed text-muted">
-          Écrivez-nous directement pour commander une paire ou poser une
-          question sur la gamme. Réponse rapide, même suivi que le formulaire.
-        </p>
-        <div className="mt-6">
-          <WhatsAppButton
-            productName={selectedProduct?.name}
-            variant="primary"
-          />
-        </div>
-      </section>
-
-      <div className="mt-12 max-w-xl">
-        <p className="mb-6 text-xs uppercase tracking-[0.2em] text-muted">
-          Ou via le formulaire
-        </p>
-        <OrderForm products={products} defaultProductSlug={defaultSlug} />
-      </div>
+      {selectedProduct ? (
+        <>
+          <CommanderProductSummary product={selectedProduct} />
+          <CommanderWhatsApp product={selectedProduct} />
+          <div className="mt-12 max-w-xl">
+            <p className="mb-6 text-xs uppercase tracking-[0.2em] text-muted">
+              Ou via le formulaire
+            </p>
+            <OrderForm
+              products={products}
+              defaultProductSlug={selectedProduct.slug}
+              lockProduct
+            />
+          </div>
+        </>
+      ) : (
+        <CommanderProductPicker highlights={quickPicks} />
+      )}
     </SiteContainer>
   );
 }

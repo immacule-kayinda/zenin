@@ -42,6 +42,7 @@ export function ImageFrame({
         alt={alt}
         fill={fill}
         priority={priority}
+        loading={priority ? "eager" : "lazy"}
         sizes={sizes}
         className="object-cover"
       />

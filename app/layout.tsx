@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 
 import "./globals.css";
@@ -47,7 +45,10 @@ export default function RootLayout({
       lang="fr"
       className={`${bricolage.variable} ${hanken.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body
+        className="flex min-h-full flex-col"
+        suppressHydrationWarning
+      >
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-surface"

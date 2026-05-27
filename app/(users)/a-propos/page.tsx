@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Button } from "@/components/ui/Button";
 import { ImageFrame } from "@/components/ui/ImageFrame";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -127,15 +126,14 @@ export default function AboutPage() {
           Prêt à choisir votre paire ?
         </h2>
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-          Parcourez le catalogue, sélectionnez le poids qui vous correspond,
-          puis commandez via le formulaire ou WhatsApp.
+          Parcourez le catalogue, choisissez votre paire, puis finalisez sur la
+          page Commander.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Button href="/produits">Voir le catalogue</Button>
           <Button href="/commander" variant="secondary">
             Passer commande
           </Button>
-          <WhatsAppButton variant="secondary" />
         </div>
       </section>
     </SiteContainer>

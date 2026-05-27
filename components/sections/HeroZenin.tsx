@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 import { HeroFloatMedia } from "./HeroFloatMedia";
 
@@ -24,7 +23,6 @@ export function HeroZenin() {
             <Button href="/commander" variant="secondary">
               Commander
             </Button>
-            <WhatsAppButton variant="secondary" />
           </div>
         </div>
 

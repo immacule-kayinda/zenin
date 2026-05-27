@@ -10,6 +10,8 @@ import { cn } from "@/lib/cn";
 type OrderFormProps = {
   products: Product[];
   defaultProductSlug?: string;
+  /** Produit imposé (page commander après sélection) */
+  lockProduct?: boolean;
 };
 
 function FieldError({ message }: { message?: string }) {
@@ -21,7 +23,18 @@ function FieldError({ message }: { message?: string }) {
   );
 }
 
-export function OrderForm({ products, defaultProductSlug }: OrderFormProps) {
+export function OrderForm({
+  products,
+  defaultProductSlug,
+  lockProduct = false,
+}: OrderFormProps) {
+  const locked =
+    lockProduct &&
+    defaultProductSlug &&
+    products.some((p) => p.slug === defaultProductSlug);
+  const lockedProduct = locked
+    ? products.find((p) => p.slug === defaultProductSlug)
+    : undefined;
   const [state, formAction, pending] = useActionState(
     submitOrder,
     initialOrderState,
@@ -108,30 +121,52 @@ export function OrderForm({ products, defaultProductSlug }: OrderFormProps) {
         />
       </div>
 
-      <div>
-        <label htmlFor="productSlug" className="text-xs uppercase tracking-[0.15em] text-muted">
-          Produit
-        </label>
-        <select
-          id="productSlug"
-          name="productSlug"
-          required
-          defaultValue={defaultProductSlug ?? products[0]?.slug}
-          className={cn(
-            "mt-2 w-full border border-line bg-surface px-4 py-3 text-sm text-ink",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
-          )}
-          aria-invalid={!!state.fieldErrors?.productSlug}
-        >
-          {products.map((product) => (
-            <option key={product.slug} value={product.slug}>
-              {product.name}
-              {product.priceLabel ? ` · ${product.priceLabel}` : ""}
+      {locked && lockedProduct ? (
+        <div>
+          <p className="text-xs uppercase tracking-[0.15em] text-muted">
+            Produit
+          </p>
+          <p className="mt-2 text-sm font-medium text-ink">
+            {lockedProduct.name}
+          </p>
+          <input
+            type="hidden"
+            name="productSlug"
+            value={lockedProduct.slug}
+          />
+        </div>
+      ) : (
+        <div>
+          <label
+            htmlFor="productSlug"
+            className="text-xs uppercase tracking-[0.15em] text-muted"
+          >
+            Produit
+          </label>
+          <select
+            id="productSlug"
+            name="productSlug"
+            required
+            defaultValue={defaultProductSlug ?? ""}
+            className={cn(
+              "mt-2 w-full border border-line bg-surface px-4 py-3 text-sm text-ink",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
+            )}
+            aria-invalid={!!state.fieldErrors?.productSlug}
+          >
+            <option value="" disabled>
+              Sélectionnez un produit
             </option>
-          ))}
-        </select>
-        <FieldError message={state.fieldErrors?.productSlug} />
-      </div>
+            {products.map((product) => (
+              <option key={product.slug} value={product.slug}>
+                {product.name}
+                {product.priceLabel ? ` · ${product.priceLabel}` : ""}
+              </option>
+            ))}
+          </select>
+          <FieldError message={state.fieldErrors?.productSlug} />
+        </div>
+      )}
 
       <div>
         <label htmlFor="message" className="text-xs uppercase tracking-[0.15em] text-muted">

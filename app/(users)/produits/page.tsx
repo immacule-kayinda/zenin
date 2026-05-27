@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { ProductCard } from "@/components/product/ProductCard";
 import { SiteContainer } from "@/components/layout/SiteContainer";
-import { CATEGORIES, SITE_NAME, type CategoryId } from "@/lib/constants";
+import { CATEGORIES, type CategoryId } from "@/lib/constants";
 import { fetchProducts } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 
@@ -42,8 +42,8 @@ export default async function ProduitsPage({ searchParams }: ProduitsPageProps) 
           Produits
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
-          Haltères en béton coulées et équipement assorti. Choisissez votre
-          référence, puis commandez en ligne ou sur WhatsApp.
+          Haltères en béton coulées et équipement assorti. Ouvrez une fiche,
+          puis passez commande pour la référence choisie.
         </p>
       </header>
 

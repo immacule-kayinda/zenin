@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Zenin 15 kg">
+  <rect width="800" height="1000" fill="#f5f5f4"/>
+  <rect x="200" y="380" width="400" height="110" rx="10" fill="#292524"/>
+  <text x="400" y="450" text-anchor="middle" fill="#fafaf9" font-family="system-ui,sans-serif" font-size="28" font-weight="600">15 kg</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Texture béton Zenin">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f5f5f4"/>
+      <stop offset="50%" style="stop-color:#d6d3d1"/>
+      <stop offset="100%" style="stop-color:#e7e5e4"/>
+    </linearGradient>
+    <pattern id="pores" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="10" r="0.9" fill="#a8a29e" opacity="0.5"/>
+      <circle cx="18" cy="4" r="0.6" fill="#78716c" opacity="0.35"/>
+      <circle cx="14" cy="20" r="0.7" fill="#d6d3d1" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#pores)" opacity="0.7"/>
+</svg>
